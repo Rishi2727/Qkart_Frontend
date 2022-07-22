@@ -33,12 +33,12 @@ const Products = () => {
 
 const history = useHistory()
 
-// const checkLogin = () => {
-//   if (!( localStorage.getItem('token') && localStorage.getItem('username') && localStorage.getItem('balance'))){
-//     history.push("/login");
-//   }
-// }
-// checkLogin();
+const checkLogin = () => {
+  if (!( localStorage.getItem('token') && localStorage.getItem('username') && localStorage.getItem('balance'))){
+    history.push("/login");
+  }
+}
+checkLogin();
 
 
   // TODO: CRIO_TASK_MODULE_PRODUCTS - Fetch products data and store it
