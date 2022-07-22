@@ -105,13 +105,10 @@ describe("Products Page - Header", () => {
     expect(history.location.pathname).toBe("/register");
   });
 
-<<<<<<< HEAD
-=======
   it("should have a search bar", () => {
     const searchInput = screen.getAllByPlaceholderText(/search/i)[0];
     expect(searchInput).toBeInTheDocument();
   });
->>>>>>> 87cebf390493aafc619e78b8de78058180be64ca
 });
 
 describe("Products Page - Header: Logged in", () => {
@@ -165,8 +162,6 @@ describe("Products Page - Header: Logged in", () => {
   });
 });
 
-<<<<<<< HEAD
-=======
 describe("Products Page", () => {
   const history = createMemoryHistory();
 
@@ -450,4 +445,3 @@ describe("Products Page", () => {
     expect(searchCall2).toBeTruthy();
   });
 });
->>>>>>> 87cebf390493aafc619e78b8de78058180be64ca

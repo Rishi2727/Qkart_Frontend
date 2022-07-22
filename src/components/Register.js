@@ -68,7 +68,9 @@ const Register = () => {
   const checkLogin = () => {
     if ( localStorage.getItem('token') && localStorage.getItem('username') && localStorage.getItem('balance')){
       history.push("/");
-    } 
+    } else{
+      history.push("/login");
+    }
   }
   checkLogin();
 
