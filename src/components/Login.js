@@ -8,7 +8,8 @@ import { config } from "../App";
 import Footer from "./Footer";
 import Header from "./Header";
 import "./Login.css";
-
+ 
+//Login function
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [data, setData] = useState({ username: "", "password": ""});
@@ -112,7 +113,7 @@ const Login = () => {
   const checkLogin = () => {
     if ( localStorage.getItem('token') && localStorage.getItem('username') && localStorage.getItem('balance')){
       history.push("/");
-    }
+    } 
   }
   checkLogin();
 
