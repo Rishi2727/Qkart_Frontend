@@ -14,7 +14,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import "./Products.css";
 import ProductCard from "./ProductCard";
-// import Cart, { generateCartItemsFrom } from "./Cart";
+import Cart, { generateCartItemsFrom } from "./Cart";
  
 // Definition of Data Structures used
 /**
@@ -91,7 +91,7 @@ const Products = () => {
     try {
       const GET_URL = config["endpoint"] + "/products";
       const response = await axios.get(GET_URL);
-      console.log("response",response)
+      // console.log("response",response)
       setIsLoading(false);
       setProductsData(response.data);
       setFilteredProducts(response.data);
@@ -235,8 +235,8 @@ const Products = () => {
  
   useEffect(() => {
     fetchCart(token)
-      // .then((cartData) => generateCartItemsFrom(cartData, productsData))
-      // .then((cartItems) => setItems(cartItems));
+      .then((cartData) => generateCartItemsFrom(cartData, productsData))
+      .then((cartItems) => setItems(cartItems));
   }, [productsData]);
  
   // TODO: CRIO_TASK_MODULE_CART - Return if a product already exists in the cart
@@ -333,8 +333,8 @@ const Products = () => {
           },
         }
       );
-      // const cart_items = generateCartItemsFrom(response.data, products);
-      // setItems(cart_items);
+      const cart_items = generateCartItemsFrom(response.data, products);
+      setItems(cart_items);
     } catch (error) {
       if (error.response) {
         enqueueSnackbar(error.response.data.message, { variant: "error" });
@@ -345,7 +345,7 @@ const Products = () => {
         );
     }
   };
- console.log(token)
+ 
   return (
     <div>
       <Header>
@@ -385,13 +385,14 @@ const Products = () => {
         onChange={(event) => debounceSearch(event.target.value, 500)}
       />
       <Grid container>
-        <Grid item className="product-grid">
+        <Grid item className="product-grid" md={token ? 9 : 12}>
           <Box className="hero">
             <p className="hero-heading">
               India’s <span className="hero-highlight">FASTEST DELIVERY</span>{" "}
               to your door step
             </p>
           </Box>
+ 
           {isLoading ? (
             <Box className="loading">
               <CircularProgress />
@@ -429,7 +430,7 @@ const Products = () => {
         </Grid>
         {token ? (
           <Grid item xs={12} md={3} bgcolor="#E9F5E1">
-            {/* <Cart items={items} products={productsData} handleQuantity={addToCart}/> */}
+            <Cart items={items} products={productsData} handleQuantity={addToCart}/>
           </Grid>
         ) : null}
       </Grid>
@@ -438,4 +439,4 @@ const Products = () => {
   );
 };
  
-export default Products
+export default Products;

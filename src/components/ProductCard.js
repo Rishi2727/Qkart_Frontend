@@ -12,7 +12,7 @@ import React from "react";
 import "./ProductCard.css";
 
 const ProductCard = ({ product, handleAddToCart }) => {
-  console.log(product);
+  // console.log(product);
   return (
     <Card className="card">
       <CardMedia
@@ -28,17 +28,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
         <Typography variant="body2" color="textSecondary" component="p">
           {product.description}
         </Typography>
-      </CardContent>
-      <CardActions className="product-card-actions">
-        <Button
-          size="small"
-          color="primary"
-          onClick={() => handleAddToCart(product)}
-          variant="contained"
-          startIcon={<AddShoppingCartOutlined />}
-        >
-          Add to Cart
-        </Button>
+        <Typography gutterBottom variant="h5" component="h2">${product.cost}</Typography>
         <Rating
           name="read-only"
           value={product.rating}
@@ -46,6 +36,19 @@ const ProductCard = ({ product, handleAddToCart }) => {
           size="small"
           className="product-card-rating"
         />
+      </CardContent>
+      <CardActions className="product-card-actions">
+        <Button
+          size="large"
+          color="success"
+          onClick={() => handleAddToCart(product)}
+          variant="contained"
+          startIcon={<AddShoppingCartOutlined />}
+          fullWidth
+        >
+          Add to Cart
+        </Button>
+        
       </CardActions>
     </Card>
   );

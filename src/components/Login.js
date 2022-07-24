@@ -25,7 +25,7 @@ const Login = () => {
       .then(function (data) {
         setLoading(false)
         op = data.data;
-        console.log(op)
+        // console.log(op)
         // {"success": true,"token": "testtoken","username": "criodo","balance": 5000}
         persistLogin(op.token, op.username, op.balance, op.token);
         enqueueSnackbar("Logged in successfully"); 
@@ -157,7 +157,7 @@ const Login = () => {
             {isLoading && <CircularProgress color="secondary" />} LOGIN TO QKART
           </Button>
           <p className="secondary-action">Don’t have an account? Register now
-            <Link to="/signup">Register now</Link>
+            <Link to="/register">Register now</Link>
             {/* <a className="link" href='./signup' >Register now</a> */}
           </p>
         </Stack>

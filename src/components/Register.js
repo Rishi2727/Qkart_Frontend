@@ -20,12 +20,12 @@ const Register = () => {
   const register = async (formData) => {
     var op = {}
     setLoading(true)
-    axios(api_url + '/auth/register', { method: 'POST', data: (formData) })
+    await axios(api_url + '/auth/register', { method: 'POST', data: (formData) })
       .then((res) => res)
       .then(function (data) {
         setLoading(false)
         op = data
-        console.log(op)
+        // console.log(op)
         enqueueSnackbar("Registration success .");
         setTimeout(function () {
           setData({ username: "", "password": "", "confirmPassword": "" });
@@ -33,7 +33,9 @@ const Register = () => {
           document.getElementById("password").value = "";
           document.getElementById("confirmPassword").value = "";
           document.getElementById("btn").blur();
-        },3000)
+          history.push("/login");
+        },100);
+        
       })
       .catch(function (error) {
         setLoading(false)
@@ -41,8 +43,8 @@ const Register = () => {
           enqueueSnackbar(" Username is already taken success ");
         }
         else if (error.response && error.response.status && error.response.status === 201) { 
-          enqueueSnackbar("Registration success .");
-          history.push("/login");
+          // enqueueSnackbar("Registration success .");
+          // history.push("/login");
         }
         else if (error.response && error.response.data && error.response.data.message) {
           enqueueSnackbar(error.response.data.message);
@@ -68,7 +70,8 @@ const Register = () => {
   const checkLogin = () => {
     if ( localStorage.getItem('token') && localStorage.getItem('username') && localStorage.getItem('balance')){
       history.push("/");
-    } else{
+    }
+    else{
       history.push("/login");
     }
   }

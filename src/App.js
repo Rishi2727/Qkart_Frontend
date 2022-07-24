@@ -3,6 +3,8 @@ import ipConfig from "./ipConfig.json";
 import {Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import Products from "./components/Products";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 
 
 export const config = {
@@ -15,8 +17,12 @@ function App() {
    <div className="App">
       <Switch>
         <Route path="/login" component={Login} />
-        <Route path="/signup" component={Register} />
-        <Route path="/" component={Products} />
+        <Route path="/register" component={Register} />
+        {/* <Route path="/products" component={Products} /> */}
+        {/* <Route path="/cart" component={Cart} /> */}
+        <Route path="/checkout" component={Checkout} />
+        
+        <Route exact path="/" component={Products} />
       </Switch>
      
      </div>
