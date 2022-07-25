@@ -12,7 +12,6 @@ import React from "react";
 import "./ProductCard.css";
 
 const ProductCard = ({ product, handleAddToCart }) => {
-<<<<<<< HEAD
   // console.log(product);
   return (
     <Card className="card">
@@ -23,13 +22,10 @@ const ProductCard = ({ product, handleAddToCart }) => {
         title={product.name}
       />
       <CardContent className="product-card-content">
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography gutterBottom variant="body1" component="h6">
           {product.name}
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {product.description}
-        </Typography>
-        <Typography gutterBottom variant="h5" component="h2">${product.cost}</Typography>
+        <Typography gutterBottom variant="body1" component="h6">${product.cost}</Typography>
         <Rating
           name="read-only"
           value={product.rating}
@@ -51,10 +47,6 @@ const ProductCard = ({ product, handleAddToCart }) => {
         </Button>
         
       </CardActions>
-=======
-  return (
-    <Card className="card">
->>>>>>> 5767137389eff21180db4866ca63d74ef791cdc7
     </Card>
   );
 };
