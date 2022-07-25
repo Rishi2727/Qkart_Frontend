@@ -12,6 +12,7 @@ import React from "react";
 import "./ProductCard.css";
 
 const ProductCard = ({ product, handleAddToCart }) => {
+<<<<<<< HEAD
   // console.log(product);
   return (
     <Card className="card">
@@ -50,6 +51,10 @@ const ProductCard = ({ product, handleAddToCart }) => {
         </Button>
         
       </CardActions>
+=======
+  return (
+    <Card className="card">
+>>>>>>> 5767137389eff21180db4866ca63d74ef791cdc7
     </Card>
   );
 };

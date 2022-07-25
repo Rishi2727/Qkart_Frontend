@@ -41,7 +41,6 @@ import Header from "./Header";
  * @property {string} image - Contains URL for the product image
  * @property {string} productId - Unique ID for the product
  */
- 
 /**
  * @typedef {Object} Address - Data on added address
  *
